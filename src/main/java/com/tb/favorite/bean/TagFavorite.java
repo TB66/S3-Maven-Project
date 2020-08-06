@@ -1,4 +1,4 @@
-package com.tb.favorite;
+package com.tb.favorite.bean;
 
 /**
  * java.io.Serializable 序列化接口

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 当前接口的命名空间 -->
+<mapper namespace="com.tb.favorite.dao.TagMapper">
+
+	<insert id="insert" useGeneratedKeys="true" keyColumn="tid" keyProperty="tid">
+		insert into tag values(null,#{tname},1)
+	</insert>
+	
+	<select id="selectAll" resultType="com.tb.favorite.bean.Tag">
+		select * from tag
+	</select>
+	<select id="selectByTname" resultType="com.tb.favorite.bean.Tag">
+		select * from tag where tname=#{tname}
+	</select>
+	
+	<update id="update">
+		update tag set tcount=tcount+1 where tname=#{tname}
+	</update>
+</mapper>
