@@ -8,6 +8,26 @@
 	<insert id="insert" useGeneratedKeys="true" keyColumn="fid" keyProperty="fid">
 		insert into favorite values(null,#{flabel},#{furl},#{fdesc},#{ftags})
 	</insert>
-
+	
+	<select id="selectAll" resultType="com.tb.favorite.bean.Favorite">
+		select * from favorite
+	</select>
+	
+	<select id="selectByTid" resultType="com.tb.favorite.bean.Favorite">
+		select * from favorite a
+			<where>
+				<choose>
+					<when test="tid == null">
+						(ftags is null or ftags='')
+					</when>
+					<when test="tid>0">
+						and exists (select * from tagfavorite b
+									where a.fid=b.fid
+										and b.tid=#{tid}
+						)
+					</when>
+				</choose>
+			</where>
+	</select>
 	
 </mapper>

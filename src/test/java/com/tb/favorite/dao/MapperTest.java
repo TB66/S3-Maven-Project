@@ -26,4 +26,20 @@ public class MapperTest {
 		f.setFtags("娱乐,生活，游戏");
 		fb.addFavorite(f);
 	}
+
+	@Test
+	public void Test4() {
+		Favorite f = new Favorite();
+		FavoriteBiz fb = new FavoriteBiz();
+		f.setFlabel("百度");
+		f.setFurl("baidu.com");
+		f.setFdesc("搜索引擎");
+		fb.addFavorite(f);
+	}
+
+	@Test
+	public void Test3() {
+		FavoriteBiz fb = new FavoriteBiz();
+		fb.selectByTid(null);
+	}
 }
